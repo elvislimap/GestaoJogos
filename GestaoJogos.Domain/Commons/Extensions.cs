@@ -1,4 +1,8 @@
-﻿namespace GestaoJogos.Domain.Commons
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace GestaoJogos.Domain.Commons
 {
     public static class Extensions
     {
@@ -20,6 +24,17 @@
         public static bool ToBool(this object value)
         {
             return value != null && bool.TryParse(value.ToText(), out var valueBool) ? valueBool : value.ToInt() == 1;
+        }
+
+        public static string OnlyNumbers(this string text)
+        {
+            var regex = new Regex(@"\d+");
+            return regex.Matches(text).Aggregate("", (current, m) => current + m.Value);
+        }
+
+        public static List<string> StringToList(this string text)
+        {
+            return new List<string> {text};
         }
     }
 }

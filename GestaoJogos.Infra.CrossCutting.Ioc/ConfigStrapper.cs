@@ -1,4 +1,8 @@
-﻿using GestaoJogos.Domain.Interfaces.Repositories;
+﻿using GestaoJogos.Application.Core.Interfaces;
+using GestaoJogos.Application.Core.Services;
+using GestaoJogos.Domain.Interfaces.Repositories;
+using GestaoJogos.Domain.Interfaces.Services;
+using GestaoJogos.Domain.Services;
 using GestaoJogos.Infra.Data.SqlServer.Context;
 using GestaoJogos.Infra.Data.SqlServer.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -15,6 +19,31 @@ namespace GestaoJogos.Infra.CrossCutting.Ioc
             services.AddDbContext<ContextEf>(opt => opt.UseSqlServer(connectionString));
             services.AddMvc().AddJsonOptions(opt =>
                 opt.SerializerSettings.ContractResolver = new DefaultContractResolver());
+
+            #region AppServices
+
+            services.AddScoped<ICategoriaAppService, CategoriaAppService>();
+            services.AddScoped<IDevolucaoAppService, DevolucaoAppService>();
+            services.AddScoped<IEmprestimoAppService, EmprestimoAppService>();
+            services.AddScoped<IEnderecoAppService, EnderecoAppService>();
+            services.AddScoped<IFabricanteAppService, FabricanteAppService>();
+            services.AddScoped<IJogoAppService, JogoAppService>();
+            services.AddScoped<IMunicipioAppService, MunicipioAppService>();
+            services.AddScoped<IPessoaEnderecoAppService, PessoaEnderecoAppService>();
+            services.AddScoped<IPessoaAppService, PessoaAppService>();
+            services.AddScoped<IUsuarioAppService, UsuarioAppService>();
+
+            #endregion
+
+            #region Services
+
+            services.AddScoped<ICategoriaService, CategoriaService>();
+            services.AddScoped<IFabricanteService, FabricanteService>();
+            services.AddScoped<IJogoService, JogoService>();
+            services.AddScoped<IPessoaService, PessoaService>();
+            services.AddScoped<IPessoaEnderecoService, PessoaEnderecoService>();
+
+            #endregion
 
             #region Repositories
 

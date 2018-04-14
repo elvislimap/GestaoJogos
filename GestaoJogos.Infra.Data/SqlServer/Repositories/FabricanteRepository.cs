@@ -30,6 +30,11 @@ namespace GestaoJogos.Infra.Data.SqlServer.Repositories
             _context.SaveChanges();
         }
 
+        public Fabricante Obter(int fabricanteId)
+        {
+            return _context.Fabricantes.Find(fabricanteId);
+        }
+
         public List<Fabricante> ObterTodos(int usuarioId)
         {
             return _context.Fabricantes.Where(f => f.UsuarioId == usuarioId).ToList();

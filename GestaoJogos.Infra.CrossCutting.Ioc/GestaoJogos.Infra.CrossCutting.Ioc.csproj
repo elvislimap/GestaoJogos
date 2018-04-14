@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GestaoJogos.Application.Core\GestaoJogos.Application.Core.csproj" />
     <ProjectReference Include="..\GestaoJogos.Infra.Data\GestaoJogos.Infra.Data.csproj" />
   </ItemGroup>
 

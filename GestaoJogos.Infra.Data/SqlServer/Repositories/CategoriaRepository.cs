@@ -30,6 +30,11 @@ namespace GestaoJogos.Infra.Data.SqlServer.Repositories
             _context.SaveChanges();
         }
 
+        public Categoria Obter(int categoriaId)
+        {
+            return _context.Categorias.Find(categoriaId);
+        }
+
         public List<Categoria> ObterTodos(int usuarioId)
         {
             return _context.Categorias.Where(c => c.UsuarioId == usuarioId).ToList();

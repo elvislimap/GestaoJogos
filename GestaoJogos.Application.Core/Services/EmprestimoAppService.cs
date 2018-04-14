@@ -17,17 +17,22 @@ namespace GestaoJogos.Application.Core.Services
 
         public Result Adicionar(Emprestimo emprestimo)
         {
-            throw new System.NotImplementedException();
+            if (!emprestimo.IsValid(out var listValidationErrors))
+                return new Result {ValidationErrors = listValidationErrors};
+
+            _emprestimoRepository.Adicionar(emprestimo);
+
+            return new Result();
         }
 
         public Result Obter(int emprestimoId)
         {
-            throw new System.NotImplementedException();
+            return new Result {Return = _emprestimoRepository.Obter(emprestimoId)};
         }
 
         public Result ObterTodos(int usuarioId)
         {
-            throw new System.NotImplementedException();
+            return new Result {Return = _emprestimoRepository.ObterTodos(usuarioId)};
         }
     }
 }

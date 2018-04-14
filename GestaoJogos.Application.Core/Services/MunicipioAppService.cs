@@ -16,7 +16,7 @@ namespace GestaoJogos.Application.Core.Services
 
         public Result Obter(int estadoId)
         {
-            throw new System.NotImplementedException();
+            return new Result {Return = _municipioRepository.Obter(estadoId)};
         }
     }
 }

@@ -8,6 +8,7 @@ namespace GestaoJogos.Domain.Interfaces.Repositories
     {
         void Adicionar(Fabricante fabricante);
         void Atualizar(Fabricante fabricante);
+        Fabricante Obter(int fabricanteId);
         List<Fabricante> ObterTodos(int usuarioId);
     }
 }

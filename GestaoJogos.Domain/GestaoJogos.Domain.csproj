@@ -4,15 +4,4 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Validations\Specifications\CategoriaSpecs\IsValid\" />
-    <Folder Include="Validations\Specifications\DevolucaoSpecs\IsValid\" />
-    <Folder Include="Validations\Specifications\EmprestimoSpecs\IsValid\" />
-    <Folder Include="Validations\Specifications\EnderecoSpecs\IsValid\" />
-    <Folder Include="Validations\Specifications\FabricanteSpecs\IsValid\" />
-    <Folder Include="Validations\Specifications\JogoSpecs\IsValid\" />
-    <Folder Include="Validations\Specifications\PessoaSpecs\IsValid\" />
-    <Folder Include="Validations\Specifications\UsuarioSpecs\IsValid\" />
-  </ItemGroup>
-
 </Project>

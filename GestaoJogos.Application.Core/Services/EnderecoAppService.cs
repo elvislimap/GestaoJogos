@@ -17,12 +17,17 @@ namespace GestaoJogos.Application.Core.Services
 
         public Result Adicionar(Endereco endereco)
         {
-            throw new System.NotImplementedException();
+            if (!endereco.IsValid(out var listValidationErrors))
+                return new Result {ValidationErrors = listValidationErrors};
+
+            _enderecoRepository.Adicionar(endereco);
+
+            return new Result();
         }
 
         public Result ObterTodos()
         {
-            throw new System.NotImplementedException();
+            return new Result {Return = _enderecoRepository.ObterTodos()};
         }
     }
 }

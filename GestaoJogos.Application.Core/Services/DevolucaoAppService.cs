@@ -17,7 +17,12 @@ namespace GestaoJogos.Application.Core.Services
 
         public Result Adicionar(Devolucao devolucao)
         {
-            throw new System.NotImplementedException();
+            if (!devolucao.IsValid(out var listValidationErrors))
+                return new Result {ValidationErrors = listValidationErrors};
+
+            _devolucaoRepository.Adicionar(devolucao);
+
+            return new Result();
         }
     }
 }

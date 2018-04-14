@@ -17,17 +17,17 @@ namespace GestaoJogos.Application.Core.Services
 
         public Result Adicionar(Usuario usuario)
         {
-            throw new System.NotImplementedException();
-        }
+            if (!usuario.IsValid(out var listValidationErrors, _usuarioRepository))
+                return new Result {ValidationErrors = listValidationErrors};
 
-        public Result Atualizar(Usuario usuario)
-        {
-            throw new System.NotImplementedException();
+            _usuarioRepository.Adicionar(usuario);
+
+            return new Result();
         }
 
         public Result Obter(string email, string senha)
         {
-            throw new System.NotImplementedException();
+            return new Result {Return = _usuarioRepository.Obter(email, senha)};
         }
     }
 }

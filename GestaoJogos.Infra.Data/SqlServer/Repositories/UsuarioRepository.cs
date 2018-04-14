@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using GestaoJogos.Domain.Entities;
 using GestaoJogos.Domain.Interfaces.Repositories;
@@ -23,15 +24,14 @@ namespace GestaoJogos.Infra.Data.SqlServer.Repositories
             _context.SaveChanges();
         }
 
-        public void Atualizar(Usuario usuario)
-        {
-            _context.Entry(usuario).State = EntityState.Modified;
-            _context.SaveChanges();
-        }
-
         public Usuario Obter(string email, string senha)
         {
             return _context.Usuarios.FirstOrDefault(u => u.Email == email && u.Senha == senha);
+        }
+
+        public List<Usuario> Obter(string email)
+        {
+            return _context.Usuarios.Where(u => u.Email == email).ToList();
         }
 
         public void Dispose()

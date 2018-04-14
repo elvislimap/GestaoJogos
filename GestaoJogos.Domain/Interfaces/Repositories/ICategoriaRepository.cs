@@ -8,6 +8,7 @@ namespace GestaoJogos.Domain.Interfaces.Repositories
     {
         void Adicionar(Categoria categoria);
         void Atualizar(Categoria categoria);
+        Categoria Obter(int categoriaId);
         List<Categoria> ObterTodos(int usuarioId);
     }
 }
