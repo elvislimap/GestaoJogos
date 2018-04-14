@@ -5,10 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="SqlServer\Configurations\" />
-    <Folder Include="SqlServer\Context\" />
     <Folder Include="SqlServer\Database\" />
     <Folder Include="SqlServer\Repositories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GestaoJogos.Domain\GestaoJogos.Domain.csproj" />
   </ItemGroup>
 
 </Project>
