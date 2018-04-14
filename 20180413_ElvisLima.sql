@@ -1,0 +1,90 @@
+﻿CREATE TABLE Usuario (
+	UsuarioId INT NOT NULL IDENTITY PRIMARY KEY,
+	Nome VARCHAR(60) NOT NULL,
+	Email VARCHAR(80) NOT NULL,
+	Senha VARCHAR(32) NOT NULL
+);
+
+CREATE TABLE Pessoa (
+	PessoaId INT NOT NULL IDENTITY PRIMARY KEY,
+	Nome VARCHAR(60) NOT NULL,
+	Sobrenome VARCHAR(60) NOT NULL,
+	Cpf VARCHAR(11),
+	Telefone VARCHAR(11),
+	Email VARCHAR(80),
+	Excluido BIT NOT NULL DEFAULT 0
+);
+
+CREATE TABLE Estado (
+	EstadoId INT NOT NULL IDENTITY PRIMARY KEY,
+	Nome VARCHAR(50) NOT NULL,
+	Uf CHAR(2) NOT NULL
+);
+
+CREATE TABLE Municipio (
+	MunicipioId INT NOT NULL IDENTITY PRIMARY KEY,
+	EstadoId INT NOT NULL,
+	Nome VARCHAR(150) NOT NULL,
+
+	FOREIGN KEY(EstadoId) REFERENCES Estado (EstadoId)
+);
+
+CREATE TABLE Endereco (
+	EnderecoId INT NOT NULL IDENTITY PRIMARY KEY,
+	MunicipioId INT NOT NULL,
+	Logradouro VARCHAR(80) NOT NULL,
+	Numero VARCHAR(10),
+	Bairro VARCHAR(60) NOT NULL,
+	Cep VARCHAR(10) NOT NULL,
+
+	FOREIGN KEY(MunicipioId) REFERENCES Municipio (MunicipioId)
+);
+
+CREATE TABLE PessoaEndereco (
+	PessoaEnderecoId INT NOT NULL IDENTITY PRIMARY KEY,
+	PessoaId INT NOT NULL,
+	EnderecoId INT NOT NULL,
+	Excluido BIT NOT NULL DEFAULT 0,
+
+	FOREIGN KEY(PessoaId) REFERENCES Pessoa (PessoaId),
+	FOREIGN KEY(EnderecoId) REFERENCES Endereco (EnderecoId)
+);
+
+CREATE TABLE Fabricante (
+	FabricanteId INT NOT NULL IDENTITY PRIMARY KEY,
+	Nome VARCHAR(80) NOT NULL
+);
+
+CREATE TABLE Categoria (
+	CategoriaId INT NOT NULL IDENTITY PRIMARY KEY,
+	Descricao VARCHAR(30)
+);
+
+CREATE TABLE Jogo (
+	JogoId INT NOT NULL IDENTITY PRIMARY KEY,
+	FabricanteId INT,
+	CategoriaId INT,
+	Nome VARCHAR(150) NOT NULL,
+
+	FOREIGN KEY(FabricanteId) REFERENCES Fabricante (FabricanteId),
+	FOREIGN KEY(CategoriaId) REFERENCES Categoria (CategoriaId)
+);
+
+CREATE TABLE Emprestimo (
+	EmprestimoId INT NOT NULL IDENTITY PRIMARY KEY,
+	PessoaId INT NOT NULL,
+	JogoId INT NOT NULL,
+	DataHora DATETIME NOT NULL,
+
+	FOREIGN KEY(PessoaId) REFERENCES Pessoa (PessoaId),
+	FOREIGN KEY(JogoId) REFERENCES Jogo (JogoId)
+);
+
+CREATE TABLE Devolucao (
+	DevolucaoId INT NOT NULL IDENTITY PRIMARY KEY,
+	EmprestimoId INT NOT NULL,
+	DataHora DATETIME,
+	Avaliacao TINYINT NOT NULL,
+
+	FOREIGN KEY(EmprestimoId) REFERENCES Emprestimo (EmprestimoId)
+);

@@ -3,9 +3,45 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{D0599DA9-E75B-43E3-860D-C75BADA34EED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Services", "2 - Services", "{63E4C230-1A84-4089-AD98-29590D0AD122}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Application", "3 - Application", "{20A5FB65-5C71-4A7A-B70A-D680B70E2842}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Domain", "4 - Domain", "{4AE44B21-5CE9-419F-BF6E-61C26CEC4042}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Infra", "5 - Infra", "{22359CC7-DB22-4A76-B240-32D36AC5C2E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.1 - Infra.Data", "5.1 - Infra.Data", "{53484EC1-80EB-4D32-9FA6-3871AE662FFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestaoJogos.Infra.Data", "GestaoJogos.Infra.Data\GestaoJogos.Infra.Data.csproj", "{889CDA96-5CBA-40AD-AA39-C5262890FFB9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Docs", "0 - Docs", "{3C5C1D22-7AF6-4B4E-B789-8B052C9EB2A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts SQLServer GestaoJogos", "Scripts SQLServer GestaoJogos", "{D894F69E-223A-44B5-9670-852B54E6C8ED}"
+	ProjectSection(SolutionItems) = preProject
+		20180413_ElvisLima.sql = 20180413_ElvisLima.sql
+	EndProjectSection
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{889CDA96-5CBA-40AD-AA39-C5262890FFB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{889CDA96-5CBA-40AD-AA39-C5262890FFB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{889CDA96-5CBA-40AD-AA39-C5262890FFB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{889CDA96-5CBA-40AD-AA39-C5262890FFB9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{53484EC1-80EB-4D32-9FA6-3871AE662FFC} = {22359CC7-DB22-4A76-B240-32D36AC5C2E7}
+		{889CDA96-5CBA-40AD-AA39-C5262890FFB9} = {53484EC1-80EB-4D32-9FA6-3871AE662FFC}
+		{D894F69E-223A-44B5-9670-852B54E6C8ED} = {3C5C1D22-7AF6-4B4E-B789-8B052C9EB2A5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B9B1DF39-D259-4703-9636-DFE4E3C06F9E}

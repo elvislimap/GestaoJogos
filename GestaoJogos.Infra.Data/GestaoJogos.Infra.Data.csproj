@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="SqlServer\Configurations\" />
+    <Folder Include="SqlServer\Context\" />
+    <Folder Include="SqlServer\Database\" />
+    <Folder Include="SqlServer\Repositories\" />
+  </ItemGroup>
+
+</Project>
