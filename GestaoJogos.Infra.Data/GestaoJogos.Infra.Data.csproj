@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="SqlServer\Database\" />
-    <Folder Include="SqlServer\Repositories\" />
   </ItemGroup>
 
   <ItemGroup>

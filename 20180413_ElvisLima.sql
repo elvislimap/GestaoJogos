@@ -2,18 +2,20 @@
 	UsuarioId INT NOT NULL IDENTITY PRIMARY KEY,
 	Nome VARCHAR(60) NOT NULL,
 	Email VARCHAR(80) NOT NULL,
-	Senha VARCHAR(32) NOT NULL,
-	Excluido BIT NOT NULL DEFAULT 0
+	Senha VARCHAR(32) NOT NULL
 );
 
 CREATE TABLE Pessoa (
 	PessoaId INT NOT NULL IDENTITY PRIMARY KEY,
+	UsuarioId INT NOT NULL,
 	Nome VARCHAR(60) NOT NULL,
-	Sobrenome VARCHAR(60) NOT NULL,
+	Sobrenome VARCHAR(60),
 	Cpf VARCHAR(11),
 	Telefone VARCHAR(11),
 	Email VARCHAR(80),
-	Excluido BIT NOT NULL DEFAULT 0
+	Excluido BIT NOT NULL DEFAULT 0,
+	
+	FOREIGN KEY(UsuarioId) REFERENCES Usuario (UsuarioId)
 );
 
 CREATE TABLE Estado (
@@ -53,44 +55,56 @@ CREATE TABLE PessoaEndereco (
 
 CREATE TABLE Fabricante (
 	FabricanteId INT NOT NULL IDENTITY PRIMARY KEY,
+	UsuarioId INT NOT NULL,
 	Nome VARCHAR(80) NOT NULL,
-	Excluido BIT NOT NULL DEFAULT 0
+	Excluido BIT NOT NULL DEFAULT 0,
+	
+	FOREIGN KEY(UsuarioId) REFERENCES Usuario (UsuarioId)
 );
 
 CREATE TABLE Categoria (
 	CategoriaId INT NOT NULL IDENTITY PRIMARY KEY,
-	Descricao VARCHAR(30),
-	Excluido BIT NOT NULL DEFAULT 0
+	UsuarioId INT NOT NULL,
+	Descricao VARCHAR(30) NOT NULL,
+	Excluido BIT NOT NULL DEFAULT 0,
+	
+	FOREIGN KEY(UsuarioId) REFERENCES Usuario (UsuarioId)
 );
 
 CREATE TABLE Jogo (
 	JogoId INT NOT NULL IDENTITY PRIMARY KEY,
 	FabricanteId INT,
 	CategoriaId INT,
+	UsuarioId INT NOT NULL,
 	Nome VARCHAR(150) NOT NULL,
 	Excluido BIT NOT NULL DEFAULT 0,
 
 	FOREIGN KEY(FabricanteId) REFERENCES Fabricante (FabricanteId),
-	FOREIGN KEY(CategoriaId) REFERENCES Categoria (CategoriaId)
+	FOREIGN KEY(CategoriaId) REFERENCES Categoria (CategoriaId),
+	FOREIGN KEY(UsuarioId) REFERENCES Usuario (UsuarioId)
 );
 
 CREATE TABLE Emprestimo (
 	EmprestimoId INT NOT NULL IDENTITY PRIMARY KEY,
 	PessoaId INT NOT NULL,
 	JogoId INT NOT NULL,
+	UsuarioId INT NOT NULL,
 	DataHora DATETIME NOT NULL,
 
 	FOREIGN KEY(PessoaId) REFERENCES Pessoa (PessoaId),
-	FOREIGN KEY(JogoId) REFERENCES Jogo (JogoId)
+	FOREIGN KEY(JogoId) REFERENCES Jogo (JogoId),
+	FOREIGN KEY(UsuarioId) REFERENCES Usuario (UsuarioId)
 );
 
 CREATE TABLE Devolucao (
 	DevolucaoId INT NOT NULL IDENTITY PRIMARY KEY,
 	EmprestimoId INT NOT NULL,
+	UsuarioId INT NOT NULL,
 	DataHora DATETIME NOT NULL,
 	Avaliacao TINYINT NOT NULL,
 
-	FOREIGN KEY(EmprestimoId) REFERENCES Emprestimo (EmprestimoId)
+	FOREIGN KEY(EmprestimoId) REFERENCES Emprestimo (EmprestimoId),
+	FOREIGN KEY(UsuarioId) REFERENCES Usuario (UsuarioId)
 );
 
 /*Inicio inserir estados*/

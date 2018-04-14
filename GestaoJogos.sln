@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Infra", "5 - Infra", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.1 - Infra.Data", "5.1 - Infra.Data", "{53484EC1-80EB-4D32-9FA6-3871AE662FFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestaoJogos.Infra.Data", "GestaoJogos.Infra.Data\GestaoJogos.Infra.Data.csproj", "{889CDA96-5CBA-40AD-AA39-C5262890FFB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestaoJogos.Infra.Data", "GestaoJogos.Infra.Data\GestaoJogos.Infra.Data.csproj", "{889CDA96-5CBA-40AD-AA39-C5262890FFB9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Docs", "0 - Docs", "{3C5C1D22-7AF6-4B4E-B789-8B052C9EB2A5}"
 EndProject
@@ -24,15 +24,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts SQLServer GestaoJog
 		20180413_ElvisLima.sql = 20180413_ElvisLima.sql
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestaoJogos.Domain", "GestaoJogos.Domain\GestaoJogos.Domain.csproj", "{E9AAB34E-4BD0-4249-B71A-257AE546A6A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestaoJogos.Domain", "GestaoJogos.Domain\GestaoJogos.Domain.csproj", "{E9AAB34E-4BD0-4249-B71A-257AE546A6A8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.1 - APIs", "2.1 - APIs", "{1F295354-7AF9-405B-8824-1A4408AEAD2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestaoJogos.Services.Core.Api", "GestaoJogos.Services.Core.Api\GestaoJogos.Services.Core.Api.csproj", "{BCAEC561-F52E-4156-83F0-AF5A09953949}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestaoJogos.Services.Core.Api", "GestaoJogos.Services.Core.Api\GestaoJogos.Services.Core.Api.csproj", "{BCAEC561-F52E-4156-83F0-AF5A09953949}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.2 - Infra.CrossCutting", "5.2 - Infra.CrossCutting", "{8EFA0BD3-29E1-448D-975E-2FF9877F41D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestaoJogos.Infra.CrossCutting.Ioc", "GestaoJogos.Infra.CrossCutting.Ioc\GestaoJogos.Infra.CrossCutting.Ioc.csproj", "{3779D454-5BCF-4864-BFBA-1A297933D640}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestaoJogos.Infra.CrossCutting.Ioc", "GestaoJogos.Infra.CrossCutting.Ioc\GestaoJogos.Infra.CrossCutting.Ioc.csproj", "{3779D454-5BCF-4864-BFBA-1A297933D640}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestaoJogos.Application.Core", "GestaoJogos.Application.Core\GestaoJogos.Application.Core.csproj", "{F3023B9F-D821-414D-AAF3-E4775F5791B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +58,10 @@ Global
 		{3779D454-5BCF-4864-BFBA-1A297933D640}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3779D454-5BCF-4864-BFBA-1A297933D640}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3779D454-5BCF-4864-BFBA-1A297933D640}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3023B9F-D821-414D-AAF3-E4775F5791B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3023B9F-D821-414D-AAF3-E4775F5791B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3023B9F-D821-414D-AAF3-E4775F5791B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3023B9F-D821-414D-AAF3-E4775F5791B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,6 +75,7 @@ Global
 		{BCAEC561-F52E-4156-83F0-AF5A09953949} = {1F295354-7AF9-405B-8824-1A4408AEAD2F}
 		{8EFA0BD3-29E1-448D-975E-2FF9877F41D6} = {22359CC7-DB22-4A76-B240-32D36AC5C2E7}
 		{3779D454-5BCF-4864-BFBA-1A297933D640} = {8EFA0BD3-29E1-448D-975E-2FF9877F41D6}
+		{F3023B9F-D821-414D-AAF3-E4775F5791B8} = {20A5FB65-5C71-4A7A-B70A-D680B70E2842}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B9B1DF39-D259-4703-9636-DFE4E3C06F9E}

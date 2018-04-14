@@ -3,6 +3,7 @@
     public class Fabricante
     {
         public int FabricanteId { get; set; }
+        public int UsuarioId { get; set; }
         public string Nome { get; set; }
         public bool Excluido { get; set; }
     }
