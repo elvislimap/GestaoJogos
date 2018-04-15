@@ -1,8 +1,13 @@
-﻿using GestaoJogos.Infra.CrossCutting.Ioc;
+﻿using System;
+using System.Net;
+using GestaoJogos.Infra.CrossCutting.Ioc;
 using GestaoJogos.Infra.Security;
 using GestaoJogos.Presentation.Site.Filters;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -26,18 +31,15 @@ namespace GestaoJogos.Presentation.Site
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if (env.IsDevelopment())
+            app.UseStatusCodePages(async context =>
             {
-                app.UseBrowserLink();
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
+                var response = context.HttpContext.Response;
+                if (response.StatusCode == (int)HttpStatusCode.Unauthorized)
+                    response.Redirect("/login");
+            });
 
+            app.UseAuthentication();
             app.UseStaticFiles();
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

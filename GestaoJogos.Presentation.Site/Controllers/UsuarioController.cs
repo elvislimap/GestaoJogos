@@ -1,5 +1,6 @@
 ﻿using GestaoJogos.Application.Core.Interfaces;
 using GestaoJogos.Domain.Entities;
+using GestaoJogos.Domain.ValuesObjects;
 using GestaoJogos.Presentation.Site.Commons;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -31,7 +32,7 @@ namespace GestaoJogos.Presentation.Site.Controllers
             }
             catch
             {
-                throw;
+                return new Result().ResultError();
             }
         }
     }

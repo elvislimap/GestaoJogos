@@ -8,19 +8,20 @@
     ]
   },
   {
-    "outputFileName": "wwwroot/js/layout.js",
-    "inputFiles": [
-      "wwwroot/js/frameworks/jquery.min.js",
-      "wwwroot/js/frameworks/materialize.min.js",
-      "wwwroot/js/shared.js"
-    ]
-  },
-  {
     "outputFileName": "wwwroot/css/layout.css",
     "inputFiles": [
       "wwwroot/css/frameworks/materialize.min.css",
       "wwwroot/css/frameworks/material_icons.css",
       "wwwroot/css/shared.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/layout.js",
+    "inputFiles": [
+      "wwwroot/js/frameworks/jquery.min.js",
+      "wwwroot/js/frameworks/materialize.min.js",
+      "wwwroot/js/frameworks/jquery.cookie.js",
+      "wwwroot/js/shared.js"
     ]
   }
 ]

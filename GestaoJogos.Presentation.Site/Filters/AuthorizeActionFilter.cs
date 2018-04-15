@@ -40,7 +40,10 @@ namespace GestaoJogos.Presentation.Site.Filters
             var headerAuthorization = headers.FirstOrDefault(h => h.Key == "Authorization");
             var authorization = headerAuthorization.Value.ToString();
 
-            if (string.IsNullOrEmpty(authorization) || !_securityService.ValidateToken(authorization))
+            if (string.IsNullOrEmpty(authorization))
+                authorization = $"Bearer {context.HttpContext.Request.Cookies["token"]}";
+
+            if (!_securityService.ValidateToken(authorization))
                 context.Result = new UnauthorizedResult();
         }
     }

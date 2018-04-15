@@ -8,6 +8,34 @@ body {
     background: linear-gradient(180deg, rgb(249, 249, 249), rgb(239, 239, 239));
 }
 
+.logo-wrapper {
+    margin: 0 60px;
+}
+
+.logo-wrapper a:hover {
+    background-color: initial;
+}
+
+.user-view {
+    padding: 50px !important;
+}
+
+.logo-wrapper.title-menu-left {
+    margin-top: 20px;
+}
+
+#menu-left {
+    position: absolute;
+    top: 16px;
+    left: 15px;
+    color: #FFF;
+    z-index: 1000;
+    cursor: pointer;
+    background-color: #1e88e5;
+    border-radius: 3px;
+    padding: 5px 5px 0;
+}
+
 /*Início loading*/
 .loading {
     cursor: wait;
@@ -42,3 +70,63 @@ body .loading {
 }
 
 /*Fim loading*/
+
+.input-field .prefix.active {
+    color: #1e88e5;
+}
+
+input:not([type]):focus:not([readonly]),
+input[type="text"]:not(.browser-default):focus:not([readonly]),
+input[type="password"]:not(.browser-default):focus:not([readonly]),
+input[type="email"]:not(.browser-default):focus:not([readonly]),
+input[type="url"]:not(.browser-default):focus:not([readonly]),
+input[type="time"]:not(.browser-default):focus:not([readonly]),
+input[type="date"]:not(.browser-default):focus:not([readonly]),
+input[type="datetime"]:not(.browser-default):focus:not([readonly]),
+input[type="datetime-local"]:not(.browser-default):focus:not([readonly]),
+input[type="tel"]:not(.browser-default):focus:not([readonly]),
+input[type="number"]:not(.browser-default):focus:not([readonly]),
+input[type="search"]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #1e88e5;
+    -webkit-box-shadow: 0 1px 0 0 #1e88e5;
+    box-shadow: 0 1px 0 0 #1e88e5;
+}
+
+    input:not([type]):focus:not([readonly]) + label,
+    input[type=text]:not(.browser-default):focus:not([readonly]) + label,
+    input[type=password]:not(.browser-default):focus:not([readonly]) + label,
+    input[type=email]:not(.browser-default):focus:not([readonly]) + label,
+    input[type=url]:not(.browser-default):focus:not([readonly]) + label,
+    input[type=time]:not(.browser-default):focus:not([readonly]) + label,
+    input[type=date]:not(.browser-default):focus:not([readonly]) + label,
+    input[type=datetime]:not(.browser-default):focus:not([readonly]) + label,
+    input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label,
+    input[type=tel]:not(.browser-default):focus:not([readonly]) + label,
+    input[type=number]:not(.browser-default):focus:not([readonly]) + label,
+    input[type=search]:not(.browser-default):focus:not([readonly]) + label,
+    textarea.materialize-textarea:focus:not([readonly]) + label {
+        color: #1e88e5;
+    }
+
+#toast-container {
+    width: 100% !important;
+    bottom: 5px !important;
+    top: initial !important;
+}
+
+.validation {
+    display: none;
+    margin-left: 55px;
+    color: #e75959;
+}
+
+.validation.is-invalid {
+    display: block;
+}
+
+@media (max-width: 767px) {
+    #toast-container {
+        bottom: 0;
+    }
+}

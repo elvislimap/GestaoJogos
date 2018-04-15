@@ -19,5 +19,15 @@ namespace GestaoJogos.Presentation.Site.Commons
         {
             return new ObjectResult(result) {StatusCode = (int) result.GetHttpStatusCode()};
         }
+
+        public static ObjectResult ResultError(this Result result)
+        {
+            return new ObjectResult(result)
+            {
+                StatusCode = result.Messages.Any() || result.ValidationErrors.Any()
+                    ? (int) HttpStatusCode.BadRequest
+                    : (int) HttpStatusCode.InternalServerError
+            };
+        }
     }
 }

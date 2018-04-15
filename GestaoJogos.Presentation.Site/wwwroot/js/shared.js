@@ -1,4 +1,8 @@
-﻿$(document)
+﻿$(document).ready(function() {
+    $(".button-collapse").sideNav();
+});
+
+$(document)
     .ajaxStart(function () {
         $("body").addClass("loading");
     })
@@ -12,13 +16,18 @@ var httpStatusCode = {
     Unauthorization: 401
 };
 
-function PostAjax(controller, metodo, valor, sucesso, async, timeout) {
-    var erro = function (e) {
+function RequestAjax(controller, type, metodo, valor, sucesso, erro, async, timeout) {
+    var error = function (e) {
         if (e.status === httpStatusCode.Unauthorization) {
             AlertToast("Sessão expirada");
             setTimeout(function () {
                 window.location.replace("login");
             }, 2000);
+            return;
+        }
+
+        if (e.status === httpStatusCode.BadRequest && e.responseJSON.ValidationErrors.length) {
+            erro(e.responseJSON);
             return;
         }
 
@@ -28,15 +37,18 @@ function PostAjax(controller, metodo, valor, sucesso, async, timeout) {
 
     $.ajax({
         url: webroot + controller + "/" + metodo,
-        type: "POST",
+        type: type,
         data: JSON.stringify(valor),
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         traditional: true,
         async: async == null ? true : false,
         success: sucesso,
-        error: erro,
-        timeout: timeout == null ? 300000 : timeout
+        error: error,
+        timeout: timeout == null ? 300000 : timeout,
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("Authorization", "Bearer " + $.cookie("token"));
+        }
     });
 }
 
