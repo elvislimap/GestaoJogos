@@ -1,0 +1,57 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Login | Gestão Jogos</title>
+    <link rel="stylesheet" href="~/css/layout.min.css" />
+    <link rel="stylesheet" href="~/css/views/login.css" />
+
+    <!--[if lt IE 9]>
+        <script src="js/frameworks/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body class="grey lighten-4">
+    <div class="row">
+        <div class="col s12 z-depth-4 card-panel">
+            <form id="frmLogin">
+                <div class="row">
+                    <div class="input-field col s12 center">
+                        <img src="./images/logologin.png" alt="Logo" width="150">
+                        <p class="center titulo-login">Logar para gerenciar seus jogos</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">email</i>
+                        <input id="txtEmail" type="text">
+                        <label for="txtEmail">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input id="txtSenha" type="password">
+                        <label for="txtSenha">Senha</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <button id="btnLogar" class="col s12 btn waves-effect waves-light blue darken-1" type="button">Entrar</button>
+                    </div>
+                    <div class="input-field col s12 center">
+                        <a href="~/usuario/novo">Cadastre-se</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="~/js/layout.min.js"></script>
+</body>
+</html>

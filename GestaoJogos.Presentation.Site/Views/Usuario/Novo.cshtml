@@ -1,0 +1,63 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Novo Usuário | Gestão Jogos</title>
+    <link rel="stylesheet" href="~/css/layout.min.css" />
+
+    <!--[if lt IE 9]>
+        <script src="js/frameworks/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body class="grey lighten-4">
+    <div class="row">
+        <div class="col l2 m1 s12"></div>
+        <div class="col l8 m10 s12">
+            <form id="frmNovoUsuario">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <h4>Cadastrar</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="txtNome" type="text">
+                        <label for="txtNome">Nome</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">email</i>
+                        <input id="txtEmail" type="text">
+                        <label for="txtEmail">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input id="txtSenha" type="password">
+                        <label for="txtSenha">Senha</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <button id="btnSalvar" class="col s12 btn waves-effect waves-light blue darken-1" type="button">Salvar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col l2 m1 s12"></div>
+    </div>
+
+    <script src="~/js/layout.min.js"></script>
+    <script> var webroot = "@Url.Content("~/")"; </script>
+    <script src="~/js/views/usuario-novo.js"></script>
+</body>
+</html>
