@@ -25,9 +25,9 @@ namespace GestaoJogos.Application.Core.Services
             return new Result();
         }
 
-        public Result Obter(string email, string senha)
+        public Result Autenticar(string email, string senha)
         {
-            return new Result {Return = _usuarioRepository.Obter(email, senha)};
+            return new Result {Return = _usuarioRepository.Obter(email, senha) != null};
         }
     }
 }

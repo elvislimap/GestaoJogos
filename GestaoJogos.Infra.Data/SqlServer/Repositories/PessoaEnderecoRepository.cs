@@ -37,7 +37,7 @@ namespace GestaoJogos.Infra.Data.SqlServer.Repositories
 
         public List<PessoaEndereco> ObterPorPessoa(int pessoaId)
         {
-            return _context.PessoaEnderecos.Where(p => p.PessoaId == pessoaId).ToList();
+            return _context.PessoaEnderecos.Where(p => p.PessoaId == pessoaId && !p.Excluido).ToList();
         }
 
         public void Dispose()

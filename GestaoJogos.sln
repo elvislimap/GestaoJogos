@@ -34,7 +34,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.2 - Infra.CrossCutting", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestaoJogos.Infra.CrossCutting.Ioc", "GestaoJogos.Infra.CrossCutting.Ioc\GestaoJogos.Infra.CrossCutting.Ioc.csproj", "{3779D454-5BCF-4864-BFBA-1A297933D640}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestaoJogos.Application.Core", "GestaoJogos.Application.Core\GestaoJogos.Application.Core.csproj", "{F3023B9F-D821-414D-AAF3-E4775F5791B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestaoJogos.Application.Core", "GestaoJogos.Application.Core\GestaoJogos.Application.Core.csproj", "{F3023B9F-D821-414D-AAF3-E4775F5791B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.3 - Infra.Security", "5.3 - Infra.Security", "{A7EF889B-19E9-4AC8-A8B4-C4CCB2B3B82D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestaoJogos.Infra.Security", "GestaoJogos.Infra.Security\GestaoJogos.Infra.Security.csproj", "{D7AA44F8-9E39-4DCC-ACC1-609CAB463C2A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,6 +66,10 @@ Global
 		{F3023B9F-D821-414D-AAF3-E4775F5791B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3023B9F-D821-414D-AAF3-E4775F5791B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3023B9F-D821-414D-AAF3-E4775F5791B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7AA44F8-9E39-4DCC-ACC1-609CAB463C2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7AA44F8-9E39-4DCC-ACC1-609CAB463C2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7AA44F8-9E39-4DCC-ACC1-609CAB463C2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7AA44F8-9E39-4DCC-ACC1-609CAB463C2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +84,8 @@ Global
 		{8EFA0BD3-29E1-448D-975E-2FF9877F41D6} = {22359CC7-DB22-4A76-B240-32D36AC5C2E7}
 		{3779D454-5BCF-4864-BFBA-1A297933D640} = {8EFA0BD3-29E1-448D-975E-2FF9877F41D6}
 		{F3023B9F-D821-414D-AAF3-E4775F5791B8} = {20A5FB65-5C71-4A7A-B70A-D680B70E2842}
+		{A7EF889B-19E9-4AC8-A8B4-C4CCB2B3B82D} = {22359CC7-DB22-4A76-B240-32D36AC5C2E7}
+		{D7AA44F8-9E39-4DCC-ACC1-609CAB463C2A} = {A7EF889B-19E9-4AC8-A8B4-C4CCB2B3B82D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B9B1DF39-D259-4703-9636-DFE4E3C06F9E}

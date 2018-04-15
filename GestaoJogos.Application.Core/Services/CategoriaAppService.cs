@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-using GestaoJogos.Application.Core.Interfaces;
+﻿using GestaoJogos.Application.Core.Interfaces;
 using GestaoJogos.Domain.Entities;
 using GestaoJogos.Domain.Interfaces.Repositories;
 using GestaoJogos.Domain.Interfaces.Services;
-using GestaoJogos.Domain.Validations;
 using GestaoJogos.Domain.ValuesObjects;
 
 namespace GestaoJogos.Application.Core.Services

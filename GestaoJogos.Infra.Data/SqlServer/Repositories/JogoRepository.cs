@@ -44,12 +44,12 @@ namespace GestaoJogos.Infra.Data.SqlServer.Repositories
                 .Where(j => j.UsuarioId == usuarioId
                             && (j.Nome.Contains(filtro)
                                 || j.Fabricante.Nome.Contains(filtro)
-                                || j.Categoria.Descricao.Contains(filtro))).ToList();
+                                || j.Categoria.Descricao.Contains(filtro)) && !j.Excluido).ToList();
         }
 
         public List<Jogo> ObterTodos(int usuarioId)
         {
-            return _context.Jogos.Where(j => j.UsuarioId == usuarioId).ToList();
+            return _context.Jogos.Where(j => j.UsuarioId == usuarioId && !j.Excluido).ToList();
         }
 
         public void Dispose()

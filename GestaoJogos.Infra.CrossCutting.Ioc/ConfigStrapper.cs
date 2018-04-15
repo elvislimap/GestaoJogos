@@ -1,10 +1,13 @@
-﻿using GestaoJogos.Application.Core.Interfaces;
+﻿using System.IO;
+using GestaoJogos.Application.Core.Interfaces;
 using GestaoJogos.Application.Core.Services;
 using GestaoJogos.Domain.Interfaces.Repositories;
 using GestaoJogos.Domain.Interfaces.Services;
 using GestaoJogos.Domain.Services;
 using GestaoJogos.Infra.Data.SqlServer.Context;
 using GestaoJogos.Infra.Data.SqlServer.Repositories;
+using GestaoJogos.Infra.Security;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json.Serialization;
@@ -13,11 +16,19 @@ namespace GestaoJogos.Infra.CrossCutting.Ioc
 {
     public class ConfigStrapper
     {
-        public static void RegisterServices(IServiceCollection services, string connectionString)
+        public static void RegisterServices(IServiceCollection services, IActionFilter actionFilter)
         {
+            var fileNameDb =
+                $@"{
+                        Path.GetDirectoryName(Directory.GetCurrentDirectory())
+                    }\GestaoJogos.Infra.Data\SqlServer\Database\GestaoJogos.mdf";
+
+            var connectionString =
+                $@"Server=(localdb)\MSSQLLocalDB;Integrated Security=true;AttachDbFileName={fileNameDb};";
+
             services.AddCors();
             services.AddDbContext<ContextEf>(opt => opt.UseSqlServer(connectionString));
-            services.AddMvc().AddJsonOptions(opt =>
+            services.AddMvc(config => { config.Filters.Add(actionFilter); }).AddJsonOptions(opt =>
                 opt.SerializerSettings.ContractResolver = new DefaultContractResolver());
 
             #region AppServices
@@ -42,6 +53,8 @@ namespace GestaoJogos.Infra.CrossCutting.Ioc
             services.AddScoped<IJogoService, JogoService>();
             services.AddScoped<IPessoaService, PessoaService>();
             services.AddScoped<IPessoaEnderecoService, PessoaEnderecoService>();
+            services.AddScoped<ISecurityService, SecurityService>();
+
 
             #endregion
 

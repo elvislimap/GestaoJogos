@@ -1,4 +1,6 @@
 ﻿using GestaoJogos.Infra.CrossCutting.Ioc;
+using GestaoJogos.Infra.Security;
+using GestaoJogos.Services.Core.Api.Filters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -18,7 +20,7 @@ namespace GestaoJogos.Services.Core.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            ConfigStrapper.RegisterServices(services, Configuration.GetConnectionString(""));
+            ConfigStrapper.RegisterServices(services, new AuthorizeActionFilter(new SecurityService()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

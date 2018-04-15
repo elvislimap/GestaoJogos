@@ -6,6 +6,6 @@ namespace GestaoJogos.Application.Core.Interfaces
     public interface IUsuarioAppService
     {
         Result Adicionar(Usuario usuario);
-        Result Obter(string email, string senha);
+        Result Autenticar(string email, string senha);
     }
 }

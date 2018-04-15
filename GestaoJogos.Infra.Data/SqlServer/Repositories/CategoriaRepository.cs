@@ -37,7 +37,7 @@ namespace GestaoJogos.Infra.Data.SqlServer.Repositories
 
         public List<Categoria> ObterTodos(int usuarioId)
         {
-            return _context.Categorias.Where(c => c.UsuarioId == usuarioId).ToList();
+            return _context.Categorias.Where(c => c.UsuarioId == usuarioId && !c.Excluido).ToList();
         }
 
         public void Dispose()

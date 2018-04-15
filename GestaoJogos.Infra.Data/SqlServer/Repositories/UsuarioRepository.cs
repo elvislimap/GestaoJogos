@@ -4,7 +4,6 @@ using System.Linq;
 using GestaoJogos.Domain.Entities;
 using GestaoJogos.Domain.Interfaces.Repositories;
 using GestaoJogos.Infra.Data.SqlServer.Context;
-using Microsoft.EntityFrameworkCore;
 
 namespace GestaoJogos.Infra.Data.SqlServer.Repositories
 {
