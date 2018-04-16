@@ -33,13 +33,10 @@ namespace GestaoJogos.Infra.CrossCutting.Ioc
 
             #region AppServices
 
-            services.AddScoped<ICategoriaAppService, CategoriaAppService>();
             services.AddScoped<IDevolucaoAppService, DevolucaoAppService>();
             services.AddScoped<IEmprestimoAppService, EmprestimoAppService>();
             services.AddScoped<IEnderecoAppService, EnderecoAppService>();
-            services.AddScoped<IFabricanteAppService, FabricanteAppService>();
             services.AddScoped<IJogoAppService, JogoAppService>();
-            services.AddScoped<IMunicipioAppService, MunicipioAppService>();
             services.AddScoped<IPessoaEnderecoAppService, PessoaEnderecoAppService>();
             services.AddScoped<IPessoaAppService, PessoaAppService>();
             services.AddScoped<IUsuarioAppService, UsuarioAppService>();
@@ -48,8 +45,6 @@ namespace GestaoJogos.Infra.CrossCutting.Ioc
 
             #region Services
 
-            services.AddScoped<ICategoriaService, CategoriaService>();
-            services.AddScoped<IFabricanteService, FabricanteService>();
             services.AddScoped<IJogoService, JogoService>();
             services.AddScoped<IPessoaService, PessoaService>();
             services.AddScoped<IPessoaEnderecoService, PessoaEnderecoService>();
@@ -60,13 +55,10 @@ namespace GestaoJogos.Infra.CrossCutting.Ioc
 
             #region Repositories
 
-            services.AddScoped<ICategoriaRepository, CategoriaRepository>();
             services.AddScoped<IDevolucaoRepository, DevolucaoRepository>();
             services.AddScoped<IEmprestimoRepository, EmprestimoRepository>();
             services.AddScoped<IEnderecoRepository, EnderecoRepository>();
-            services.AddScoped<IFabricanteRepository, FabricanteRepository>();
             services.AddScoped<IJogoRepository, JogoRepository>();
-            services.AddScoped<IMunicipioRepository, MunicipioRepository>();
             services.AddScoped<IPessoaEnderecoRepository, PessoaEnderecoRepository>();
             services.AddScoped<IPessoaRepository, PessoaRepository>();
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();

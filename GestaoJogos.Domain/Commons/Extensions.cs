@@ -28,6 +28,9 @@ namespace GestaoJogos.Domain.Commons
 
         public static string OnlyNumbers(this string text)
         {
+            if (string.IsNullOrEmpty(text))
+                return text;
+
             var regex = new Regex(@"\d+");
             return regex.Matches(text).Aggregate("", (current, m) => current + m.Value);
         }

@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "Jogos | Gestão Jogos";
+}
+
+<h3 class="title-page">Jogos</h3>
+
+<div class="row">
+    <a id="btnAbrirModalAddJogo" class="btn waves-effect waves-light blue right tooltipped" data-position="top" data-tooltip="Novo">
+        <i class="material-icons">add</i>
+    </a>
+</div>
+<div class="row">
+    <table id="tblJogos" class="striped highlight">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<div id="modalAddJogo" class="modal">
+    <div class="modal-content">
+        <div class="row">
+            <div id="divFrmJogo" class="col s12"></div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a id="btnAddJogo" href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Salvar</a>
+    </div>
+</div>
+
+<script> var webroot = "@Url.Content("~/")"; </script>
+<script src="~/js/views/jogo.js"></script>

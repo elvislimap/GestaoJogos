@@ -40,11 +40,6 @@ namespace GestaoJogos.Application.Core.Services
             return new Result {Return = _jogoRepository.Obter(jogoId)};
         }
 
-        public Result Obter(int usuarioId, string filtro)
-        {
-            return new Result {Return = _jogoRepository.Obter(usuarioId, filtro)};
-        }
-
         public Result ObterTodos(int usuarioId)
         {
             return new Result {Return = _jogoRepository.ObterTodos(usuarioId)};

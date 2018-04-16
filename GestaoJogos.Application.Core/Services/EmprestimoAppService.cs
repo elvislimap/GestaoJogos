@@ -1,4 +1,5 @@
-﻿using GestaoJogos.Application.Core.Interfaces;
+﻿using System;
+using GestaoJogos.Application.Core.Interfaces;
 using GestaoJogos.Domain.Entities;
 using GestaoJogos.Domain.Interfaces.Repositories;
 using GestaoJogos.Domain.ValuesObjects;
@@ -19,6 +20,8 @@ namespace GestaoJogos.Application.Core.Services
         {
             if (!emprestimo.IsValid(out var listValidationErrors))
                 return new Result {ValidationErrors = listValidationErrors};
+
+            emprestimo.DataHora = DateTime.Now;
 
             _emprestimoRepository.Adicionar(emprestimo);
 

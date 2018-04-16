@@ -13,7 +13,9 @@ namespace GestaoJogos.Domain.Entities
         public int EmprestimoId { get; set; }
         public int UsuarioId { get; set; }
         public DateTime DataHora { get; set; }
-        public int Avaliacao { get; set; }
+        public byte Avaliacao { get; set; }
+
+        public virtual Emprestimo Emprestimo { get; set; }
 
         private bool IsRequiredValid(out List<ValidationError> listValidationErrors)
         {

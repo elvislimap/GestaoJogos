@@ -8,7 +8,6 @@ namespace GestaoJogos.Application.Core.Interfaces
         Result Adicionar(Jogo jogo);
         Result Atualizar(Jogo jogo);
         Result Obter(int jogoId);
-        Result Obter(int usuarioId, string filtro);
         Result ObterTodos(int usuarioId);
     }
 }

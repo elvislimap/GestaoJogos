@@ -15,6 +15,7 @@ namespace GestaoJogos.Presentation.Site.Controllers
     public class LoginController : Controller
     {
         private const string CookieTokenName = "token";
+        private const string CookieUsuarioName = "id";
 
         private readonly IUsuarioAppService _usuarioAppService;
         private readonly ISecurityService _securityService;
@@ -27,16 +28,15 @@ namespace GestaoJogos.Presentation.Site.Controllers
 
         public IActionResult Index()
         {
-            Response.Cookies.Delete(CookieTokenName);
-
+            RemoverCookies();
             return View();
         }
 
+        [HttpPost]
         public IActionResult LogOut()
         {
-            Response.Cookies.Delete(CookieTokenName);
-
-            return View("Index");
+            RemoverCookies();
+            return new Result().Result();
         }
 
         [HttpPost]
@@ -46,12 +46,15 @@ namespace GestaoJogos.Presentation.Site.Controllers
             {
                 var result = _usuarioAppService.Autenticar(usuario.Email, usuario.Senha);
 
-                if (!result.Return.ToBool())
+                if (result.Return == null)
                     return new Result {Messages = "Usuário ou senha inválido".StringToList()}.ResultError();
 
+                var usuarioLogado = (Usuario) result.Return;
                 var token = _securityService.CreateToken(usuario.Email, usuario.Senha);
 
                 Response.Cookies.Append(CookieTokenName, token,
+                    new CookieOptions {Expires = DateTime.Now.AddHours(23)});
+                Response.Cookies.Append(CookieUsuarioName, usuarioLogado.UsuarioId.ToText(),
                     new CookieOptions {Expires = DateTime.Now.AddHours(23)});
 
                 return new Result().Result();
@@ -60,6 +63,13 @@ namespace GestaoJogos.Presentation.Site.Controllers
             {
                 return new Result().ResultError();
             }
+        }
+
+
+        private void RemoverCookies()
+        {
+            Response.Cookies.Delete(CookieTokenName);
+            Response.Cookies.Delete(CookieUsuarioName);
         }
     }
 }

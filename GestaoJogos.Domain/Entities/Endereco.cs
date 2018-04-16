@@ -9,10 +9,11 @@ namespace GestaoJogos.Domain.Entities
     public class Endereco
     {
         public int EnderecoId { get; set; }
-        public int MunicipioId { get; set; }
         public string Logradouro { get; set; }
         public string Numero { get; set; }
         public string Bairro { get; set; }
+        public string Municipio { get; set; }
+        public string Uf { get; set; }
         public string Cep { get; set; }
 
         private bool IsRequiredValid(out List<ValidationError> listValidationErrors)
@@ -36,6 +37,12 @@ namespace GestaoJogos.Domain.Entities
             listValidationErrors = validationResult.Errors.ToList();
 
             return validationResult.IsValid;
+        }
+
+        public bool AllFieldsEmpty()
+        {
+            return string.IsNullOrEmpty(Logradouro) && string.IsNullOrEmpty(Numero) && string.IsNullOrEmpty(Bairro) &&
+                   string.IsNullOrEmpty(Municipio) && string.IsNullOrEmpty(Uf) && string.IsNullOrEmpty(Cep);
         }
     }
 }

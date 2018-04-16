@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using GestaoJogos.Domain.Entities;
 using GestaoJogos.Domain.Interfaces.Repositories;
@@ -32,12 +31,13 @@ namespace GestaoJogos.Infra.Data.SqlServer.Repositories
 
         public PessoaEndereco Obter(int pessoaEnderecoId)
         {
-            return _context.PessoaEnderecos.Find(pessoaEnderecoId);
+            return _context.PessoaEnderecos.AsNoTracking().FirstOrDefault(p => p.PessoaEnderecoId == pessoaEnderecoId);
         }
 
-        public List<PessoaEndereco> ObterPorPessoa(int pessoaId)
+        public PessoaEndereco ObterPorPessoa(int pessoaId)
         {
-            return _context.PessoaEnderecos.Where(p => p.PessoaId == pessoaId && !p.Excluido).ToList();
+            return _context.PessoaEnderecos.Include(p => p.Pessoa).Include(p => p.Endereco)
+                .FirstOrDefault(p => p.PessoaId == pessoaId && !p.Excluido && !p.Pessoa.Excluido);
         }
 
         public void Dispose()

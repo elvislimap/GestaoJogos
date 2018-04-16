@@ -24,6 +24,7 @@ namespace GestaoJogos.Domain.Services
                 return new Result {Messages = "Endereco não encontrado".StringToList()};
 
             pessoaEnderecoBd.Excluido = pessoaEndereco.Excluido;
+            pessoaEnderecoBd.EnderecoId = pessoaEndereco.EnderecoId;
 
             _pessoaEnderecoRepository.Atualizar(pessoaEndereco);
 

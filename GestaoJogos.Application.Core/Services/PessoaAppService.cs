@@ -25,7 +25,7 @@ namespace GestaoJogos.Application.Core.Services
 
             _pessoaRepository.Adicionar(pessoa);
 
-            return new Result();
+            return new Result {Return = pessoa};
         }
 
         public Result Atualizar(Pessoa pessoa)
@@ -37,7 +37,7 @@ namespace GestaoJogos.Application.Core.Services
 
         public Result Obter(int pessoaId)
         {
-            return new Result {Return = _pessoaRepository.Obter(pessoaId)};
+            return new Result {Return = _pessoaRepository.ObterComEndereco(pessoaId)};
         }
 
         public Result ObterTodos(int usuarioId)

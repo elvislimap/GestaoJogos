@@ -1,5 +1,35 @@
 ﻿$(document).ready(function() {
     $(".button-collapse").sideNav();
+
+    $("#btnLogOff").click(function() {
+        var sucesso = function() {
+            window.location.replace(webroot + "login");
+        };
+        RequestAjax("Login", "POST", "LogOut", null, sucesso);
+    });
+
+    $("#menu-amigos").click(function() {
+        window.location.href = webroot + "amigo";
+    });
+
+    $("#menu-jogos").click(function () {
+        window.location.href = webroot + "jogo";
+    });
+
+    $("#menu-emprestimos").click(function () {
+        window.location.href = webroot + "emprestimo";
+    });
+
+    $("#menu-devolucoes").click(function () {
+        window.location.href = webroot + "devolucao";
+    });
+
+    $("#menu-logoff").click(function () {
+        var sucesso = function () {
+            window.location.replace(webroot + "login");
+        };
+        RequestAjax("Login", "POST", "LogOut", null, sucesso);
+    });
 });
 
 $(document)
@@ -21,22 +51,41 @@ function RequestAjax(controller, type, metodo, valor, sucesso, erro, async, time
         if (e.status === httpStatusCode.Unauthorization) {
             AlertToast("Sessão expirada");
             setTimeout(function () {
-                window.location.replace("login");
+                window.location.replace(webroot + "login");
             }, 2000);
             return;
         }
 
         if (e.status === httpStatusCode.BadRequest && e.responseJSON.ValidationErrors.length) {
-            erro(e.responseJSON);
-            return;
+            if (erro != null) {
+                erro(e.responseJSON);
+                return;
+            }
+        }
+        
+        if (e.responseJSON.Messages.length)
+            AlertToastArray(e.responseJSON.Messages);
+
+        else if (e.responseJSON.ValidationErrors.length) {
+            var msgs = [];
+            $.each(e.responseJSON.ValidationErrors,
+                function(i, item) {
+                    msgs.push(item.Message);
+                });
+
+            AlertToastArray(msgs);
         }
 
-        AlertToastArray(e.responseJSON.Messages);
         return;
     }
 
+    var url = type === "GET"
+        ? (webroot + controller + "/" + metodo + "?" + valor)
+        : (webroot + controller + "/" + metodo);
+
+
     $.ajax({
-        url: webroot + controller + "/" + metodo,
+        url: url,
         type: type,
         data: JSON.stringify(valor),
         dataType: "json",
@@ -54,7 +103,7 @@ function RequestAjax(controller, type, metodo, valor, sucesso, erro, async, time
 
 function AlertToastArray(arrayMsgs) {
     var htmlMsgs = "";
-
+    
     $.each(arrayMsgs, function (i, item) {
         htmlMsgs += `<div>${item}</div>`;
     });
@@ -77,4 +126,14 @@ function AlertToast(msg) {
     $(".toast-close").click(function () {
         removeAll();
     });
+}
+
+function FormatDateTime(dateTime) {
+    dateTime = dateTime.replace("T", " ");
+    dateTime = dateTime.split(".")[0];
+    var date = dateTime.split(" ")[0];
+    var hour = dateTime.split(" ")[1];
+    var splitDate = date.split("-");
+
+    return splitDate[2] + "/" + splitDate[1] + "/" + splitDate[0] + " " + hour;
 }

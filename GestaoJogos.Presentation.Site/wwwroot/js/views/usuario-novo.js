@@ -1,29 +1,30 @@
-﻿$(document).ready(function() {
+﻿$(document).ready(function () {
     $("#txtNome").focus();
-    Post.NovoUsuario();
+
+    $("#btnSalvar").click(function () {
+        Post.NovoUsuario();
+    });
 });
 
 var Post = {
-    NovoUsuario: function() {
-        $("#btnSalvar").click(function() {
-            var valor = { "Nome": $("#txtNome").val(), "Email": $("#txtEmail").val(), "Senha": $("#txtSenha").val() };
-            
-            var sucesso = function() {
-                AlertToast("Usuário criado com sucesso. Em instantes você será redirecionado para a página de login.");
+    NovoUsuario: function () {
+        var valor = { "Nome": $("#txtNome").val(), "Email": $("#txtEmail").val(), "Senha": $("#txtSenha").val() };
 
-                setTimeout(function() {
-                    window.location.href = webroot + "login";
-                }, 3000);
+        var sucesso = function () {
+            AlertToast("Usuário criado com sucesso. Em instantes você será redirecionado para a página de login.");
+
+            setTimeout(function () {
+                window.location.href = webroot + "login";
+            }, 3000);
+        }
+
+        var erro = function (e) {
+            if (e.ValidationErrors.length) {
+                Form.Validate(e.ValidationErrors);
             }
+        }
 
-            var erro = function(e) {
-                if (e.ValidationErrors.length) {
-                    Form.Validate(e.ValidationErrors);
-                }
-            }
-
-            RequestAjax("Usuario", "POST", "Adicionar", valor, sucesso, erro);
-        });
+        RequestAjax("Usuario", "POST", "Adicionar", valor, sucesso, erro);
     }
 }
 
@@ -34,7 +35,7 @@ var Form = {
         var senhaIsValid = true;
 
         $.each(arrayErrors,
-            function(i, item) {
+            function (i, item) {
                 if (item.Campo === "Nome") {
                     nomeIsValid = false;
                     $("#valid-nome").html(item.Message).addClass("is-invalid");

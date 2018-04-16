@@ -7,8 +7,6 @@ namespace GestaoJogos.Domain.Validations.Validations.IsValid
     {
         public JogoIsValidValidation()
         {
-            AddRule(new ValidationRule<Jogo>(new CategoriaIdIsValidSpec()));
-            AddRule(new ValidationRule<Jogo>(new FabricanteIdIsValidSpec()));
             AddRule(new ValidationRule<Jogo>(new NomeIsValidSpec()));
         }
     }

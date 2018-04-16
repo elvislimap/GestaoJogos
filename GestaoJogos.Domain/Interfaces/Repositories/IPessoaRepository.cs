@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using GestaoJogos.Domain.Entities;
+using GestaoJogos.Domain.ValuesObjects;
 
 namespace GestaoJogos.Domain.Interfaces.Repositories
 {
@@ -9,6 +10,7 @@ namespace GestaoJogos.Domain.Interfaces.Repositories
         void Adicionar(Pessoa pessoa);
         void Atualizar(Pessoa pessoa);
         Pessoa Obter(int pessoaId);
+        AmigoAdd ObterComEndereco(int pessoaId);
         List<Pessoa> ObterTodos(int usuarioId);
     }
 }

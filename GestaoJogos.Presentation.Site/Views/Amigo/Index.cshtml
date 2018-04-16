@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Amigos | Gestão Jogos";
+}
+
+<h3 class="title-page">Amigos</h3>
+
+<div class="row">
+    <a id="btnAbrirModalAddAmigo" class="btn waves-effect waves-light blue right tooltipped" data-position="top" data-tooltip="Novo">
+        <i class="material-icons">add</i>
+    </a>
+</div>
+<div class="row">
+    <table id="tblAmigos" class="striped highlight">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<div id="modalAddAmigo" class="modal">
+    <div class="modal-content">
+        <div class="row">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s6"><a class="active" href="#divDadosPessoais">Dados pessoais</a></li>
+                    <li class="tab col s6"><a href="#divEndereco">Endereço</a></li>
+                </ul>
+            </div>
+            <div id="divDadosPessoais" class="col s12"></div>
+            <div id="divEndereco" class="col s12"></div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a id="btnAddAmigo" href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Salvar</a>
+    </div>
+</div>
+
+<script> var webroot = "@Url.Content("~/")"; </script>
+<script src="~/js/views/amigo.js"></script>

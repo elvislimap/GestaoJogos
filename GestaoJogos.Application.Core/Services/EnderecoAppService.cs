@@ -22,7 +22,7 @@ namespace GestaoJogos.Application.Core.Services
 
             _enderecoRepository.Adicionar(endereco);
 
-            return new Result();
+            return new Result {Return = endereco};
         }
 
         public Result ObterTodos()

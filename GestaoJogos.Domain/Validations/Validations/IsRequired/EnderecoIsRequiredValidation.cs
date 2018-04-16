@@ -10,7 +10,8 @@ namespace GestaoJogos.Domain.Validations.Validations.IsRequired
             AddRule(new ValidationRule<Endereco>(new BairroIsRequiredSpec()));
             AddRule(new ValidationRule<Endereco>(new CepIsRequiredSpec()));
             AddRule(new ValidationRule<Endereco>(new LogradouroIsRequiredSpec()));
-            AddRule(new ValidationRule<Endereco>(new MunicipioIdIsRequiredSpec()));
+            AddRule(new ValidationRule<Endereco>(new MunicipioIsRequiredSpec()));
+            AddRule(new ValidationRule<Endereco>(new UfIsRequiredSpec()));
         }
     }
 }

@@ -32,19 +32,7 @@ namespace GestaoJogos.Infra.Data.SqlServer.Repositories
 
         public Jogo Obter(int jogoId)
         {
-            return _context.Jogos.Find(jogoId);
-        }
-
-        public List<Jogo> Obter(int usuarioId, string filtro)
-        {
-            return _context
-                .Jogos
-                .Include(j => j.Fabricante)
-                .Include(j => j.Categoria)
-                .Where(j => j.UsuarioId == usuarioId
-                            && (j.Nome.Contains(filtro)
-                                || j.Fabricante.Nome.Contains(filtro)
-                                || j.Categoria.Descricao.Contains(filtro)) && !j.Excluido).ToList();
+            return _context.Jogos.AsNoTracking().FirstOrDefault(j => j.JogoId == jogoId);
         }
 
         public List<Jogo> ObterTodos(int usuarioId)

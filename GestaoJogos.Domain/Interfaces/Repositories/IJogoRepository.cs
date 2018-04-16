@@ -9,7 +9,6 @@ namespace GestaoJogos.Domain.Interfaces.Repositories
         void Adicionar(Jogo jogo);
         void Atualizar(Jogo jogo);
         Jogo Obter(int jogoId);
-        List<Jogo> Obter(int usuarioId, string filtro);
         List<Jogo> ObterTodos(int usuarioId);
     }
 }

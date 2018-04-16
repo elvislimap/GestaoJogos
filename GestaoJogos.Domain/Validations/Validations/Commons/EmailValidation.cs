@@ -1,6 +1,4 @@
-﻿using System.Text.RegularExpressions;
-
-namespace GestaoJogos.Domain.Validations.Validations.Commons
+﻿namespace GestaoJogos.Domain.Validations.Validations.Commons
 {
     public abstract class EmailValidation
     {

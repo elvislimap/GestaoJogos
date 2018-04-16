@@ -23,8 +23,6 @@ namespace GestaoJogos.Domain.Services
             if (jogoBd == null)
                 return new Result {Messages = "Jogo não encontrado".StringToList()};
 
-            jogoBd.FabricanteId = jogo.FabricanteId;
-            jogoBd.CategoriaId = jogo.CategoriaId;
             jogoBd.Nome = jogo.Nome;
             jogoBd.Excluido = jogo.Excluido;
 
